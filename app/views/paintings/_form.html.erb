@@ -1,0 +1,27 @@
+<%= form_for @painting do |f| %>
+  <br>
+  <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+  <%= f.label :year %>
+  <%= f.text_field :year %>
+  </div>
+  <br>
+  <div>
+  <%= f.label :style %>
+  <%= f.text_field :style %>
+  </div>
+  <br>
+  <div>
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+  </div>
+  <br>
+  <%= f.collection_select(:museum_id, Museum.all, :id, :name, { :prompt => 'Select a Museum', :selected => @painting.museum_id }, { class: 'form-control' }) %>
+  <br>
+  <%= f.collection_select(:artist_id, Artist.all, :id, :name, { :prompt => 'Select an Artist', :selected => @painting.artist_id }, { class: 'form-control' }) %>
+  <%= f.submit %>
+<% end %>

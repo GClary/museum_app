@@ -1,0 +1,30 @@
+<br>
+<br>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Style</th>
+  </tr>
+
+<%= render 'search' %>
+<br>
+<br>
+<% @paintings.each do |painting| %>
+  <tr>
+    <td><%= painting.title %></td>
+    <td><%= painting.year %></td>
+    <td><%= painting.style %></td>
+    <td><%= link_to "Show", painting_path(painting) %></td>
+    <td><%= link_to "Edit", edit_painting_path(painting) %></td>
+    <td><%= link_to "Delete", painting, method: :delete, data: { confirm: "You sure?" } %></td>
+  </tr>
+<% end %>
+</table>
+<br>
+
+<%= link_to "Add a painting to our collection", new_painting_path %>
+<br>
+<%= link_to "Add a museum to our collection", new_museum_path %>
+<br>
+<%= link_to "Add an artist to our collection", new_artist_path %>
