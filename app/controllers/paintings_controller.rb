@@ -19,6 +19,7 @@ class PaintingsController < ApplicationController
   end
 
   def show
+    @painting = Painting.find(params[:id])
   end
 
   def edit
